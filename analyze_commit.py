@@ -9,7 +9,7 @@ import requests
 # Fonction pour récupérer les différences des commits
 def obtenir_diff_commit():
     try:
-        resultat = subprocess.run(['git', 'diff', 'HEAD~1', 'HEAD', '--unified=0'], capture_output=True, text=True, check=True)
+        resultat = subprocess.run(['git', 'diff', 'HEAD~1', 'HEAD', '--unified=0', 'test_script.py'], capture_output=True, text=True, check=True)
         return resultat.stdout
     except subprocess.CalledProcessError as e:
         return f"Une erreur s'est produite lors de l'exécution de git diff: {e.stderr}"
