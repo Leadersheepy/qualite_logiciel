@@ -3,6 +3,9 @@ import subprocess
 import anthropic
 import requests
 
+import dotenv
+dotenv.load_dotenv()
+
 # Fonction pour récupérer les différences des commits
 def obtenir_diff_commit():
     try:
@@ -28,7 +31,7 @@ def analyser_diff_code(diff):
         max_tokens=1024
     )
 
-    return reponse['choices'][0]['text'].strip() if 'choices' in reponse and reponse['choices'] else "Pas de réponse de l'API."
+    return response.content[0].text.strip()
 
 # Fonction pour poster un commentaire sur une pull request
 def poster_commentaire_revue(repo, numero_pr, commentaire):
