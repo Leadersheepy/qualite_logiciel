@@ -18,8 +18,7 @@ def analyser_diff_code(diff):
         raise ValueError("La clé API Anthropics n'est pas définie dans les variables d'environnement.")
 
     messages = [
-        {"role": "user", "content": "You are a helpful assistant."},
-        {"role": "user", "content": f"Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}"}
+        {"role": "user", "content": f"You are a helpful assistant. Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}"}
     ]
 
     # Make the API call with the messages
