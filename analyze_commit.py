@@ -13,11 +13,11 @@ def obtenir_diff_commit():
 
 # Fonction pour analyser les différences avec l'IA
 def analyser_diff_code(diff):
-    anthropic.api_key = os.getenv('API_KEY')
-    if not anthropic.api_key:
+    api_key = os.getenv('API_KEY')
+    if not api_key:
         raise ValueError("La clé API Anthropics n'est pas définie dans les variables d'environnement.")
     
-    reponse = anthropic.Anthropic().completions.create(
+    reponse = anthropic.Anthropic(api_key=api_key).completions.create(
         max_tokens_to_sample=1000,
         model="claude-3-5-sonnet-20240620",
         prompt=f"Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}"
