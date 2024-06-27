@@ -16,12 +16,19 @@ def analyser_diff_code(diff):
     api_key = os.getenv('API_KEY')
     if not api_key:
         raise ValueError("La clé API Anthropics n'est pas définie dans les variables d'environnement.")
-    
-    reponse = anthropic.Anthropic(api_key=api_key).completions.create(
-        max_tokens_to_sample=1000,
+
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": f"Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}"}
+    ]
+
+    # Make the API call with the messages
+    response = anthropic.Anthropic(api_key=api_key).messages.create(
         model="claude-3-haiku-20240307",
-        prompt=f"\n\nHuman: Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}\n\nAssistant:"
+        messages=messages,
+        max_tokens=1024
     )
+
     return reponse['choices'][0]['text'].strip() if 'choices' in reponse and reponse['choices'] else "Pas de réponse de l'API."
 
 # Fonction pour poster un commentaire sur une pull request
