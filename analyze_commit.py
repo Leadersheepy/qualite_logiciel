@@ -16,12 +16,11 @@ def analyser_diff_code(diff):
     anthropic.api_key = os.getenv('API_KEY')
     if not anthropic.api_key:
         raise ValueError("La clé API Anthropics n'est pas définie dans les variables d'environnement.")
-
+    
     reponse = anthropic.Anthropic().completions.create(
+        max_tokens_to_sample=1000,
         model="claude-3-5-sonnet-20240620",
-        prompt=f"Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}",
-        max_tokens=1000,
-        temperature=0
+        prompt=f"Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}"
     )
     return reponse['choices'][0]['text'].strip() if 'choices' in reponse and reponse['choices'] else "Pas de réponse de l'API."
 
