@@ -3,8 +3,8 @@ import subprocess
 import anthropic
 import requests
 
-import dotenv
-dotenv.load_dotenv()
+# import dotenv
+# dotenv.load_dotenv()
 
 # Fonction pour récupérer les différences des commits
 def obtenir_diff_commit():
