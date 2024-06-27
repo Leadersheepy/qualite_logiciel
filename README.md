@@ -7,4 +7,4 @@ https://docs.github.com/en/actions/learn-github-actions/variables
 
 ![image](https://github.com/Leadersheepy/qualite_logiciel/assets/43178189/63a3160d-f58c-45e1-82cd-73b7cb19c2f7)
 
-![image](https://github.com/Leadersheepy/qualite_logiciel/assets/43178189/adc3e1d7-deae-4d20-92d4-c479263f403f)
+![image](https://github.com/Leadersheepy/qualite_logiciel/assets/43178189/6bc1a75b-547b-4bea-91ad-23228d1794ca)
