@@ -28,5 +28,6 @@ jobs:
 
     - name: Run code analysis
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         API_KEY: ${{ secrets.API_KEY }}
       run: python analyze_commit.py

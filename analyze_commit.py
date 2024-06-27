@@ -53,9 +53,13 @@ def main():
     commentaires_revue = analyser_diff_code(diff_commit)
     print(f"Commentaires de révision:\n{commentaires_revue}")
     
-    # Exemple d'utilisation de poster_commentaire_revue (décommentez et modifiez avec le repo et le numéro de PR réels)
-    # code_statut = poster_commentaire_revue('votre-repo', 1, commentaires_revue)
-    # print(f"Commentaire posté avec le code de statut: {code_statut}")
+    # Récupération du nom du dépôt et du numéro de la pull request à partir des variables d'environnement
+    repo = os.getenv('GITHUB_REPOSITORY')
+    pull_request = os.getenv('GITHUB_PULL_REQUEST_NUMBER')
+
+    # Utilisation de poster_commentaire_revue
+    code_statut = poster_commentaire_revue(repo, pull_request, commentaires_revue)
+    print(f"Commentaire posté avec le code de statut: {code_statut}")
 
 if __name__ == "__main__":
     main()
