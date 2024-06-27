@@ -55,7 +55,7 @@ def main():
     
     # Récupération du nom du dépôt et du numéro de la pull request à partir des variables d'environnement
     repo = os.getenv('GITHUB_REPOSITORY')
-    pull_request = os.getenv('GITHUB_PULL_REQUEST_NUMBER')
+    pull_request = os.getenv('GITHUB_REF_NAME').replace("/merge", "")
 
     # Utilisation de poster_commentaire_revue
     code_statut = poster_commentaire_revue(repo, pull_request, commentaires_revue)
