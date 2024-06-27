@@ -19,7 +19,7 @@ def analyser_diff_code(diff):
     
     reponse = anthropic.Anthropic(api_key=api_key).completions.create(
         max_tokens_to_sample=1000,
-        model="claude-3-5-sonnet-20240620",
+        model="claude-3-5-haiku-20240620",  # Remplacez "sonnet" par "haiku"
         prompt=f"\n\nHuman: Analysez la différence de code suivante et fournissez des commentaires de révision, détectez les bugs et suggérez des améliorations:\n{diff}\n\nAssistant:"
     )
     return reponse['choices'][0]['text'].strip() if 'choices' in reponse and reponse['choices'] else "Pas de réponse de l'API."
