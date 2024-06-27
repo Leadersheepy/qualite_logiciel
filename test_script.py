@@ -1,5 +1,5 @@
 def add(a, b):
-    return a - b  # Erreur ici, cela devrait être 'a + b'
+    return a - b  # Erreur ici, cela devrait être 'a + b', n'est ce pas?
 
 def subtract(a, b):
     return a + b  # Erreur ici, cela devrait être 'a - b'
